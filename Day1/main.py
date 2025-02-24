@@ -10,22 +10,18 @@ class Solution(object):
 
         digit_sum_pairs = []
 
-        # Store numbers with their digit sums as pairs
         for number in nums:
             digit_sum = self.calculate_digit_sum(number)
             digit_sum_pairs.append((digit_sum, number))
 
-        # Sort based on digit sums, and if equal, by number value
         digit_sum_pairs.sort()
 
         max_pair_sum = -1
 
-        # Iterate through the sorted array to find the maximum sum of pairs
         for index in range(1, len(digit_sum_pairs)):
             current_digit_sum = digit_sum_pairs[index][0]
             previous_digit_sum = digit_sum_pairs[index - 1][0]
 
-            # If two consecutive numbers have the same digit sum
             if current_digit_sum == previous_digit_sum:
                 current_sum = (
                     digit_sum_pairs[index][1] + digit_sum_pairs[index - 1][1]
@@ -36,8 +32,6 @@ class Solution(object):
     
 solution = Solution()
 
-# Chamada do método maximumSum
 result = solution.maximumSum([10,12,19,14])
 
-# Exibição do resultado
 print(result)
